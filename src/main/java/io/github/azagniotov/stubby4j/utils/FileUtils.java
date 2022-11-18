@@ -68,7 +68,7 @@ public final class FileUtils {
 
 
     public static File tempFileFromString(final String content) throws IOException {
-        final File temp = File.createTempFile("tmp" + System.currentTimeMillis(), ".txt");
+        final File temp = Files.createTempFile("tmp" + System.currentTimeMillis(), ".txt").toFile();
         temp.deleteOnExit();
 
         try (final FileWriter fileWriter = new FileWriter(temp);
